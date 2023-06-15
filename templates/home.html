@@ -7,6 +7,12 @@
     <title>Home</title>
 </head>
 <body>
-    <h3>Hello there i'm root</h3>
+    
+    {% for t in todo %}
+        <h3> {{ t.title }} </h3>
+        <small> {{ t.created }} </small>
+        <p> {{ t.body }} </p>
+    {% endfor %}
+
 </body>
-</html>
+</html> 
