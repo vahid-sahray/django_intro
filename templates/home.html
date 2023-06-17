@@ -4,6 +4,6 @@
 
 {% block content %}
     {% for t in todo %}
-        <a href="/detail/{{ t.id }}"> {{ t.title }} </a><br>
+        <a href="{% url 'detail' t.id %}"> {{ t.title }} </a><br>
     {% endfor %}
 {% endblock %}
