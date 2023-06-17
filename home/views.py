@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Todo
 
 
@@ -10,3 +10,8 @@ def home(request):
 def detail(request, post_id):
     todo = Todo.objects.get(pk=post_id)
     return render(request, 'detail.html', {'todo': todo})
+
+
+def delete(request, post_id):
+    todo = Todo.objects.filter(pk=post_id).delete()
+    return redirect('home')
