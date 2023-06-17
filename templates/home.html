@@ -4,8 +4,6 @@
 
 {% block content %}
     {% for t in todo %}
-        <h3> {{ t.title }} </h3>
-        <small> {{ t.created }} </small>
-        <p> {{ t.body }} </p>
+        <a href="/detail/{{ t.id }}"> {{ t.title }} </a><br>
     {% endfor %}
 {% endblock %}
