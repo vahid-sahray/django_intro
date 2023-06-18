@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
-from .models import Todo
 from django.contrib import messages
-
+from .models import Todo
+from .forms import TodoCreatedForm
 
 def home(request):
     todo = Todo.objects.all()
@@ -17,3 +17,8 @@ def delete(request, post_id):
     todo = Todo.objects.filter(pk=post_id).delete()
     messages.success(request, 'todo successfully', 'success')
     return redirect('home')
+
+
+def created(request):
+    form = TodoCreatedForm()
+    return render(request, 'create.html', {'form': form})
